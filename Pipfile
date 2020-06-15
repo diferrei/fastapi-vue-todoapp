@@ -8,6 +8,9 @@ verify_ssl = true
 [packages]
 fastapi = "*"
 uvicorn = "*"
+alembic = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
 
 [scripts]
-start = "uvicorn main:app"
+start = "uvicorn todoap.main:app"
