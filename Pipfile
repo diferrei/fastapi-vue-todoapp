@@ -9,5 +9,5 @@ verify_ssl = true
 fastapi = "*"
 uvicorn = "*"
 
-[requires]
-python_version = "3.8"
+[scripts]
+start = "uvicorn main:app"
