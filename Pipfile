@@ -13,4 +13,4 @@ sqlalchemy = "*"
 psycopg2-binary = "*"
 
 [scripts]
-start = "uvicorn todoap.main:app"
+start = "uvicorn todoapp.main:app"
