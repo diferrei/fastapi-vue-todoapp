@@ -2,7 +2,11 @@
 
 Testing FastAPI with a TODO app.
 
-# Quickstart
+## Requirements
+- Python (>= 3.6)
+- [pipenv](https://pipenv.pypa.io)
+
+## Quickstart
 
 1. Install dependencies
     ```shell script
