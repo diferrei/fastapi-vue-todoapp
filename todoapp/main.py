@@ -56,7 +56,7 @@ def change_password(
     return {"message": "Contraseña cambiada satistfactoriamente"}
 
 
-@app.post("/users/{user_id}/notes", response_model=schemas.Note)
+@app.post("/users/{user_id}/notes/", response_model=schemas.Note)
 def create_note_for_user(
     user_id: int, note: schemas.NoteCreate, db: Session = Depends(get_db)
 ):
