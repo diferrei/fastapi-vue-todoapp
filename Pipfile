@@ -11,6 +11,9 @@ uvicorn = "*"
 alembic = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+pydantic = {extras = ["dotenv"], version = "*"}
+passlib = "*"
+argon2-cffi = "*"
 
 [scripts]
 start = "uvicorn todoapp.main:app"

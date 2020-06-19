@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -17,7 +17,7 @@ class Note(NoteBase):
     id: int
     owner_id: int
     creation_datetime: datetime
-    completion_datetime: datetime
+    completion_datetime: Optional[datetime]
 
     class Config:
         orm_mode = True
