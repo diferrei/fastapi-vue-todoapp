@@ -3,6 +3,7 @@ from typing import List
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
+from starlette.authentication import AuthenticationError
 
 from todoapp import crud, schemas
 from todoapp.database import SessionLocal
@@ -26,7 +27,12 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return crud.create_user(db, user)
 
 
-@app.get("/users/", response_model=List[schemas.User])
+@app.get(
+    "/users/",
+    response_model=List[schemas.User],
+    description="Lee todos los usuarios",
+    response_description="Lista de usuarios",
+)
 def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return crud.get_users(db, skip, limit)
 
@@ -37,6 +43,17 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="El usuario no existe")
     return db_user
+
+
+@app.post("/users/{user_id}/change-password")
+def change_password(
+    user_id: int, password_data: schemas.PasswordChange, db: Session = Depends(get_db),
+):
+    try:
+        crud.change_password(db, user_id, **password_data.dict())
+    except AuthenticationError:
+        return HTTPException(status_code=401, detail="Contraseña actual incorrecta")
+    return {"message": "Contraseña cambiada satistfactoriamente"}
 
 
 @app.post("/users/{user_id}/notes", response_model=schemas.Note)

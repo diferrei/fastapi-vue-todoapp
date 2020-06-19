@@ -38,3 +38,8 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+
+class PasswordChange(BaseModel):
+    current_password: str
+    new_password: str

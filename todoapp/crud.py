@@ -1,9 +1,10 @@
 from datetime import datetime
 
 from sqlalchemy.orm import Session
+from starlette.authentication import AuthenticationError
 
 from todoapp import schemas
-from todoapp.auth import hash_password
+from todoapp.auth import check_password, hash_password
 import todoapp.models
 
 
@@ -34,6 +35,26 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def change_password(
+    db: Session, user_id: int, current_password: str, new_password: str
+):
+    """
+    Changes user password
+    :param db: databse session
+    :param user_id: user pk
+    :param current_password: current user password
+    :param new_password: new user password
+    """
+    user = get_user(db, user_id)
+    valid_password = check_password(current_password, user.password)
+    if valid_password:
+        user.password = hash_password(new_password)
+        db.add(user)
+        db.commit()
+    else:
+        raise AuthenticationError
 
 
 def get_notes(db: Session, skip: int = 0, limit: int = 10):
