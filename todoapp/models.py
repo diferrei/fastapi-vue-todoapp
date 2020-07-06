@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Boolean
 from sqlalchemy.orm import relationship
 
 from todoapp.database import Base
@@ -11,6 +11,7 @@ class User(Base):
     username = Column(String(16), unique=True, index=True)
     display_name = Column(String(32))
     password = Column(String(255))
+    deleted = Column(Boolean, default=False)
 
 
 class Note(Base):
