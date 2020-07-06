@@ -7,7 +7,6 @@ import pytest
 def user():
     return {"username": "test", "display_name": "Test User", "password": "test"}
 
-
 @pytest.fixture
 def note():
     return {"title": "Hola", "text": "Hola Mundo!!!"}

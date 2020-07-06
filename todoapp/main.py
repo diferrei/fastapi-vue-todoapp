@@ -7,6 +7,7 @@ from starlette.authentication import AuthenticationError
 
 from todoapp import crud, schemas
 from todoapp.database import SessionLocal
+from todoapp import schemas
 
 app = FastAPI()
 

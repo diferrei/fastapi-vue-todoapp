@@ -4,8 +4,8 @@ from sqlalchemy.orm import Session
 from starlette.authentication import AuthenticationError
 
 from todoapp import models, schemas
-from todoapp.auth import check_password, hash_password
-from todoapp.models import Note, User
+from todoapp.models import User, Note
+from todoapp.auth import hash_password, check_password
 
 
 def get_user(db: Session, user_id: int):
