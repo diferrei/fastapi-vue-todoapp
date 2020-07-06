@@ -13,6 +13,21 @@ def note():
     return {"title": "Hola", "text": "Hola Mundo!!!"}
 
 
+@pytest.fixture()
+def modify_note():
+    return {"title": "aloh", "text": "modifeid"}
+
+
+@pytest.fixture()
+def username_change():
+    return {"user_id": 1, "new_username": "test"}
+
+
+@pytest.fixture()
+def display_name_change():
+    return {"new_display_name": "test"}
+
+
 @pytest.fixture(scope="session", autouse=True)
 def delete_db():
     yield
