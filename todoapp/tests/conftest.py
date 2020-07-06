@@ -1,15 +1,15 @@
-import pytest
 import os
 
+import pytest
 
-@pytest.fixture()
+
+@pytest.fixture
 def user():
     return {"username": "test", "display_name": "Test User", "password": "test"}
 
-
-@pytest.fixture()
+@pytest.fixture
 def note():
-    return {"title": "hola", "text": "ASASASASA"}
+    return {"title": "Hola", "text": "Hola Mundo!!!"}
 
 
 @pytest.fixture()

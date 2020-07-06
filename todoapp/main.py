@@ -1,10 +1,11 @@
+from typing import List
+
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException
-from typing import List
 from sqlalchemy.orm import Session
 from starlette.authentication import AuthenticationError
 
-from todoapp import crud
+from todoapp import crud, schemas
 from todoapp.database import SessionLocal
 from todoapp import schemas
 

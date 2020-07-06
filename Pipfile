@@ -13,8 +13,7 @@ uvicorn = "*"
 alembic = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
-pydantic = "*"
-python-dotenv = "*"
+pydantic = {extras = ["dotenv"], version = "*"}
 passlib = "*"
 argon2-cffi = "*"
 
