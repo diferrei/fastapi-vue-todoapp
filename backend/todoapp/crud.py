@@ -3,9 +3,9 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from starlette.authentication import AuthenticationError
 
-from todoapp import models, schemas
-from todoapp.auth import check_password, hash_password
-from todoapp.models import Note, User
+from backend.todoapp import models, schemas
+from backend.todoapp.auth import check_password, hash_password
+from backend.todoapp.models import Note, User
 
 
 def get_user(db: Session, user_id: int):

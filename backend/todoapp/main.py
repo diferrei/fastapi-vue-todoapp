@@ -5,8 +5,8 @@ from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 from starlette.authentication import AuthenticationError
 
-from todoapp import crud, schemas
-from todoapp.database import SessionLocal
+from backend.todoapp import crud, schemas
+from backend.todoapp.database import SessionLocal
 
 app = FastAPI()
 

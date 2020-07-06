@@ -1,4 +1,4 @@
-from todoapp.tests.database import client
+from backend.todoapp.tests import client
 
 
 def test_create_user(user):
