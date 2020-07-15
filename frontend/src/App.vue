@@ -1,48 +1,32 @@
 <template>
   <div id="app">
-    <b-navbar type="is-dark" wrapper-class="container">
-      <template slot="start">
-        <b-navbar-item href="#">
-          Home
-        </b-navbar-item>
-        <b-navbar-dropdown label="Info">
-          <b-navbar-item href="#">
-            About
-          </b-navbar-item>
-          <b-navbar-item href="#">
-            Contact
-          </b-navbar-item>
-        </b-navbar-dropdown>
-      </template>
-
-      <template slot="end">
-        <b-navbar-item tag="div">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
-        </b-navbar-item>
-      </template>
-    </b-navbar>
-
-    <section>
-      <home />
-    </section>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import Home from "@/components/Home.vue";
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default Vue.extend({
-  name: "App",
-  components: { Home }
-});
-</script>
+#nav {
+  padding: 30px;
 
-<style lang="scss"></style>
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>
