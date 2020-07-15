@@ -1,6 +1,4 @@
 <template>
-  <div>
-    Hello!
   <div id="app">
     <b-navbar type="is-dark" wrapper-class="container">
       <template slot="start">
