@@ -1,5 +1,8 @@
 <template>
   <div class="container mt-5">
+    <div class="level">
+      <b-button @click="addNote">Añadir Nota</b-button>
+    </div>
     <div v-if="selectedNote === null" class="columns is-multiline">
       <div v-for="(note, i) in notes" :key="note.text" class="column is-half">
         <note
@@ -33,16 +36,16 @@ export default Vue.extend({
     selectedNote: null | number;
   } {
     return {
-      notes: [
-        { text: "Ir a comprar pan", completed: true },
-        { text: "Terminar el Zelda", completed: false },
-        { text: "Aprender Vue", completed: false },
-        { text: "Terminar el Semestre", completed: false },
-        { text: "Derrocar a Dani", completed: false },
-        { text: "Crear una máquina para viajar en el tiempo", completed: false }
-      ],
-      selectedNote: null
+      notes: this.$store.state.notes,
+      selectedNote: this.$store.state.selectedNote
     };
+  },
+  methods: {
+    addNote() {
+      const newNote: NoteType = { text: "Nada", completed: false };
+
+      this.$store.dispatch("addNote", newNote);
+    }
   }
 });
 </script>

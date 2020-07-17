@@ -20,3 +20,5 @@ Vue.js (plus Router, Vuex), Buefy, Axios
   - Yellow: 24 hours or less
   - Red: 6 hours or less
 - [ ] Implement the "note detail" view using Vue-Router
+- [ ] Add new note (either with a new view or a modal)
+- [ ] Implement select / unselect note updates to Vuex store
