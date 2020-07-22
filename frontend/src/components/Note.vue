@@ -1,6 +1,7 @@
 <template>
   <b-message :type="noteType">
     <div class="level">
+      <Timer v-if="!completed" @state-time="changeState" end="July 21, 2020 01:00:00" />
       <span>{{ text }}</span>
       <div class="level-right">
         <b-tooltip label="Completar" type="is-light">
@@ -30,9 +31,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-
+import Timer from "@/components/Timer.vue";
 export default Vue.extend({
   name: "Note",
+  components: { Timer },
+  data() {
+    return {
+      state: "is-light"
+    };
+  },
   props: {
     text: {
       type: String,
@@ -43,9 +50,14 @@ export default Vue.extend({
       default: false
     }
   },
+  methods: {
+    changeState(value: string) {
+      this.state = value;
+    }
+  },
   computed: {
     noteType(): string {
-      return this.completed ? "is-success" : "is-light";
+      return this.completed ? "is-success" : this.state;
     }
   }
 });
