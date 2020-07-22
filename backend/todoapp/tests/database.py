@@ -2,8 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from starlette.testclient import TestClient
 
-from backend.todoapp.database import Base
-from backend.todoapp.main import app, get_db
+from todoapp.database import Base
+from todoapp.main import app, get_db
 
 TESTING_DATABASE_URL = "sqlite:///test.db"
 

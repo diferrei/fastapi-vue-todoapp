@@ -1,4 +1,4 @@
-from backend.todoapp.tests import client
+from todoapp.tests import client
 
 
 def test_create_user(user):

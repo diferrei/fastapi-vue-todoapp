@@ -5,8 +5,8 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from backend.todoapp.config import settings
-from backend.todoapp.models import Base
+from todoapp.config import settings
+from todoapp.models import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
